@@ -5,10 +5,10 @@ CaptchaG is a simple captcha generator.
 
 ```xml
 <repositories>
-	<repository>
-		<id>captchag</id>
-		<url>https://mymavenrepo.com/repo/rx3leYorZpXFK79yi2qD/</url>
-  </repository>
+  <repository>
+    <id>captchag</id>
+    <url>https://mymavenrepo.com/repo/rx3leYorZpXFK79yi2qD/</url>
+ </repository>
 </repositories>
   
 <dependencies>
@@ -26,6 +26,7 @@ You can access and try that sample in demo directory.
 	
 @RequestMapping(path = "/test", method = RequestMethod.GET)
 public String hello(Model model, HttpServletRequest request) throws IOException {
+	// Character length must send to constructor.
 	captchaGenerator = new CaptchaGenerator(5);
 	captchaGenerator.drawRandomCharacters();
 	captchaGenerator.save();
