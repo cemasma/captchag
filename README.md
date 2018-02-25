@@ -1,7 +1,7 @@
 # captchag
 CaptchaG is a simple captcha generator.
 
-# Download
+## Download
 
 ```xml
 <repositories>
@@ -20,7 +20,17 @@ CaptchaG is a simple captcha generator.
 </dependencies>
 ```
 
-# Sample Usage in Spring Boot
+
+## Sample Captcha Images
+
+<p>
+  <img src="demo/sample1.png" width="352" height="72"/>
+  <img src="demo/sample2.png" width="352" height="72"/>
+	<img src="demo/sample3.png" width="352" height="72"/>
+</p>
+
+
+## Sample Usage in Spring Boot
 You can access and try that sample in demo directory.
 ```java
 	
@@ -51,11 +61,3 @@ public @ResponseBody byte[] getImage(HttpServletRequest request) throws IOExcept
 }
 
 ```
-
-# Sample Captcha Images
-
-<p>
-  <img src="demo/sample1.png" width="352" height="72"/>
-  <img src="demo/sample2.png" width="352" height="72"/>
-	<img src="demo/sample3.png" width="352" height="72"/>
-</p>
