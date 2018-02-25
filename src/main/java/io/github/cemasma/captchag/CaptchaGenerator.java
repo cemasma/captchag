@@ -3,7 +3,7 @@ package io.github.cemasma.captchag;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Random;
 
@@ -21,6 +21,8 @@ public class CaptchaGenerator {
     private Random random;
 
     private String[] characters;
+
+    private ByteArrayOutputStream os;
 
     public CaptchaGenerator(Integer characterSize) {
         this.characterSize = characterSize;
@@ -41,6 +43,7 @@ public class CaptchaGenerator {
 
         for (int i = 0; i < characterSize; i++) {
             int x = ((i + 1) * random(48, 5)), y = 48 + random(5, 2), angle = random(0, 42);
+
             angle = (random(0, 2) == 0)  ? angle : angle * -1;
 
             graphics2D.translate((float)x,(float)y);
@@ -61,22 +64,31 @@ public class CaptchaGenerator {
         return true;
     }
 
-    public void save(String path) {
+    public void save() {
         try {
-            ImageIO.write(bufferedImage, "png", new File(path + "captcha.png"));
+            os = new ByteArrayOutputStream();
+            ImageIO.write(bufferedImage, "jpg", os);
             reset();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void reset() {
+    public BufferedImage getBufferedImage() {
+        return bufferedImage;
+    }
+
+    public byte[] getImage() {
+        return os.toByteArray();
+    }
+
+    private void reset() {
         graphics2D.setColor(Color.WHITE);
         graphics2D.fillRect(0, 0, width, HEIGHT);
         graphics2D.setColor(Color.BLACK);
     }
 
-    public int random(int max, int min) {
+    private int random(int max, int min) {
         return random.nextInt(min) + max;
     }
 
