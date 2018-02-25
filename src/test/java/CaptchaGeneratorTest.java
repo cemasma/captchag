@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import static org.junit.Assert.*;
 
 public class CaptchaGeneratorTest {
-    
+
 
     @Test
     public void checkTest() {
