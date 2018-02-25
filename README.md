@@ -15,7 +15,7 @@ CaptchaG is a simple captcha generator.
   <dependency>
     <groupId>io.github.cemasma</groupId>
     <artifactId>captchag</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </dependency>
 </dependencies>
 ```
@@ -26,7 +26,7 @@ CaptchaG is a simple captcha generator.
 <p>
   <img src="demo/sample1.png" width="352" height="72"/>
   <img src="demo/sample2.png" width="352" height="72"/>
-	<img src="demo/sample3.png" width="352" height="72"/>
+  <img src="demo/sample3.png" width="352" height="72"/>
 </p>
 
 
