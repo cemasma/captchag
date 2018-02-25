@@ -22,4 +22,7 @@ public class RandomCharacterGenerator {
         return characters;
     }
 
+    public Random getRandom() {
+        return random;
+    }
 }
