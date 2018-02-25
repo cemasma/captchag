@@ -7,15 +7,7 @@ import java.nio.file.Paths;
 import static org.junit.Assert.*;
 
 public class CaptchaGeneratorTest {
-
-    @Test
-    public void generateTest() {
-        CaptchaGenerator captchaGenerator = new CaptchaGenerator(5);
-        captchaGenerator.drawRandomCharacters();
-        captchaGenerator.save("");
-
-        assertEquals(Files.exists(Paths.get("captcha.png")), true);
-    }
+    
 
     @Test
     public void checkTest() {
