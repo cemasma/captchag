@@ -63,7 +63,7 @@ public class CaptchaGenerator {
 
     public void save(String path) {
         try {
-            ImageIO.write(bufferedImage, "png", new File(path + "result.png"));
+            ImageIO.write(bufferedImage, "png", new File(path + "captcha.png"));
             reset();
         } catch (IOException e) {
             e.printStackTrace();

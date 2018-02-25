@@ -14,7 +14,7 @@ public class CaptchaGeneratorTest {
         captchaGenerator.drawRandomCharacters();
         captchaGenerator.save("");
 
-        assertEquals(Files.exists(Paths.get("")), true);
+        assertEquals(Files.exists(Paths.get("captcha.png")), true);
     }
 
     @Test
