@@ -38,7 +38,7 @@ public class CaptchaGenerator {
         graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 48));
 
         for (int i = 0; i < characterSize; i++) {
-            graphics2D.drawString(characters[i], ((i + 1) * 48), 48 + 5);
+            graphics2D.drawString(characters[i], ((i + 1) * random(48, 5)), 48 + random(5, 2));
         }
     }
 
@@ -57,8 +57,8 @@ public class CaptchaGenerator {
         graphics2D.setColor(Color.BLACK);
     }
 
-    public int random(int min, int max) {
-        return random.nextIn(min) + max;
+    public int random(int max, int min) {
+        return random.nextInt(min) + max;
     }
 
     public Integer getCharacterSize() {
