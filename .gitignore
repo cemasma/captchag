@@ -1,3 +1,6 @@
 .idea
 target
 out
+demo/.idea
+demo/.mvn
+demo/target
