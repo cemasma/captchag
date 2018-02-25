@@ -20,6 +20,8 @@ public class CaptchaGenerator {
     private RandomCharacterGenerator characterGenerator;
     private Random random;
 
+    private String[] characters;
+
     public CaptchaGenerator(Integer characterSize) {
         this.characterSize = characterSize;
         width = characterSize * 70;
@@ -34,7 +36,7 @@ public class CaptchaGenerator {
     }
 
     public void drawRandomCharacters() {
-        String[] characters = characterGenerator.generateCharacters(characterSize);
+        characters = characterGenerator.generateCharacters(characterSize);
         graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 48));
 
         for (int i = 0; i < characterSize; i++) {
@@ -47,6 +49,16 @@ public class CaptchaGenerator {
             graphics2D.rotate(-Math.toRadians(angle));
             graphics2D.translate(-(float)x,-(float)y);
         }
+    }
+
+    public boolean check(String text) {
+        for (int i = 0; i < characters.length; i++) {
+            if(!String.valueOf(text.charAt(i)).equals(characters[i])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public void save(String path) {
@@ -74,5 +86,13 @@ public class CaptchaGenerator {
 
     public void setCharacterSize(Integer characterSize) {
         this.characterSize = characterSize;
+    }
+
+    public String[] getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(String[] characters) {
+        this.characters = characters;
     }
 }

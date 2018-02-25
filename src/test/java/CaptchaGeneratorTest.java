@@ -16,4 +16,12 @@ public class CaptchaGeneratorTest {
 
         assertEquals(Files.exists(Paths.get("")), true);
     }
+
+    @Test
+    public void checkTest() {
+        CaptchaGenerator captchaGenerator = new CaptchaGenerator(5);
+        captchaGenerator.setCharacters(new String[]{"T", "E", "S", "4"});
+
+        assertEquals(true, captchaGenerator.check("TES4"));
+    }
 }
