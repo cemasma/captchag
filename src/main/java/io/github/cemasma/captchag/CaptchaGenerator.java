@@ -38,7 +38,14 @@ public class CaptchaGenerator {
         graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 48));
 
         for (int i = 0; i < characterSize; i++) {
-            graphics2D.drawString(characters[i], ((i + 1) * random(48, 5)), 48 + random(5, 2));
+            int x = ((i + 1) * random(48, 5)), y = 48 + random(5, 2), angle = random(0, 42);
+            angle = (random(0, 2) == 0)  ? angle : angle * -1;
+
+            graphics2D.translate((float)x,(float)y);
+            graphics2D.rotate(Math.toRadians(angle));
+            graphics2D.drawString(characters[i],  0, 0);
+            graphics2D.rotate(-Math.toRadians(angle));
+            graphics2D.translate(-(float)x,-(float)y);
         }
     }
 
