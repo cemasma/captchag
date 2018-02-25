@@ -25,8 +25,7 @@ public class CaptchaGenerator {
     private ByteArrayOutputStream os;
 
     public CaptchaGenerator(Integer characterSize) {
-        this.characterSize = characterSize;
-        width = characterSize * 70;
+        this.setCharacterSize(characterSize);
 
         this.bufferedImage = new BufferedImage(width, HEIGHT, BufferedImage.TYPE_INT_ARGB);
         graphics2D = bufferedImage.createGraphics();
@@ -98,6 +97,7 @@ public class CaptchaGenerator {
 
     public void setCharacterSize(Integer characterSize) {
         this.characterSize = characterSize;
+        width = characterSize * 70;
     }
 
     public String[] getCharacters() {
