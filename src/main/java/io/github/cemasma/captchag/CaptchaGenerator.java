@@ -24,19 +24,21 @@ public class CaptchaGenerator {
 
     private ByteArrayOutputStream os;
 
+    private Color textColor = Color.BLACK;
+    private Color backgroundColor = Color.WHITE;
+
     public CaptchaGenerator(Integer characterSize) {
         this.setCharacterSize(characterSize);
 
         this.bufferedImage = new BufferedImage(width, HEIGHT, BufferedImage.TYPE_INT_ARGB);
         graphics2D = bufferedImage.createGraphics();
 
-        this.reset();
-
         characterGenerator = new RandomCharacterGenerator();
         random = characterGenerator.getRandom();
     }
 
     public void drawRandomCharacters() {
+        reset();
         characters = characterGenerator.generateCharacters(characterSize);
         graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 48));
 
@@ -66,8 +68,8 @@ public class CaptchaGenerator {
     public void save() {
         try {
             os = new ByteArrayOutputStream();
-            ImageIO.write(bufferedImage, "jpg", os);
-            reset();
+            ImageIO.write(bufferedImage, "png", os);
+            //reset();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,9 +84,9 @@ public class CaptchaGenerator {
     }
 
     private void reset() {
-        graphics2D.setColor(Color.WHITE);
+        graphics2D.setColor(backgroundColor);
         graphics2D.fillRect(0, 0, width, HEIGHT);
-        graphics2D.setColor(Color.BLACK);
+        graphics2D.setColor(textColor);
     }
 
     private int random(int max, int min) {
@@ -106,5 +108,13 @@ public class CaptchaGenerator {
 
     public void setCharacters(String[] characters) {
         this.characters = characters;
+    }
+
+    public void setTextColor(Color color) {
+        textColor = color;
+    }
+
+    public void setBackgroundColor(Color color) {
+        backgroundColor = color;
     }
 }

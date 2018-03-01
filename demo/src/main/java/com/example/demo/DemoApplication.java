@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+import java.awt.*;
 import java.io.IOException;
 
 @SpringBootApplication
@@ -28,6 +29,9 @@ public class DemoApplication {
 	@RequestMapping(path = "/test", method = RequestMethod.GET)
 	public String hello(Model model, HttpServletRequest request) throws IOException {
 		captchaGenerator = new CaptchaGenerator(5);
+
+		captchaGenerator.setBackgroundColor(Color.BLUE);
+		captchaGenerator.setTextColor(Color.RED);
 		captchaGenerator.drawRandomCharacters();
 		captchaGenerator.save();
 
